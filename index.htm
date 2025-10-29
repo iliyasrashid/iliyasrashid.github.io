@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Dr. Iliyas Rashid | Computational Genomics and Bioinformatics Researcher">
   <title>Dr. Iliyas Rashid | Computational Genomics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
   <style>
     :root {
@@ -44,9 +46,12 @@
       background-color: var(--secondary);
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       padding: 10px;
+      position: relative;
     }
+
     nav a {
       color: var(--white);
       text-decoration: none;
@@ -56,6 +61,52 @@
     }
     nav a:hover {
       opacity: 0.8;
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      left: 15px;
+      top: 12px;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--white);
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    /* Hide menu initially on small screens */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* When toggled on small screens */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
     }
 
     /* MAIN CONTENT */
@@ -94,24 +145,7 @@
       font-size: 0.9em;
     }
 
-    /* RESPONSIVE LAYOUT */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
-      nav {
-        flex-direction: column;
-      }
-      nav a {
-        display: block;
-        margin: 8px 0;
-      }
-      section {
-        margin: 15px 10px;
-        padding: 20px;
-      }
-    }
-
+    /* Smaller screens adjustments */
     @media (max-width: 480px) {
       header {
         padding: 30px 15px;
@@ -126,6 +160,10 @@
         padding: 15px;
       }
     }
+	i.fa-solid {
+  color: #004080;
+  margin-right: 6px;
+}
   </style>
 </head>
 
@@ -137,12 +175,21 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div> <!-- 4 lines instead of 3 -->
+    </div>
+
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
   <section id="about">
@@ -150,30 +197,29 @@
     <p>
       Dr. Iliyas Rashid received his M.Sc. in Bioinformatics from Jamia Millia Islamia, New Delhi (2006), 
       and his Ph.D. in Biotechnology with a specialization in Computational Genomics from AMITY University (2018). 
-      His doctoral work was carried out at ICAR–National Bureau of Fish Genetic Resources (NBFGR), India.
+      His doctoral work was carried out at ICAR-National Bureau of Fish Genetic Resources (NBFGR), India.
     </p>
     <p>
-      He worked as a Research Associate at ICAR–NBFGR from 2010–2019 in the Centre for Agricultural Bioinformatics (CABin), 
+      He worked as a Research Associate at ICAR-NBFGR from 2010-2019 in the Centre for Agricultural Bioinformatics (CABin), 
       contributing to national genomics projects. Since 2019, he has been with the Vector Genetics Laboratory, University of California, Davis/San Diego, 
-      focusing on the population genomics of malaria vectors and spontaneous mutation rate studies using high-depth sequencing.
-    </p>
+      focusing on the population genomics of malaria vectors and spontaneous mutation rate studies using high-depth sequencing.    </p>
   </section>
 
   <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>Ph.D. Biotechnology (Computational Genomics)</strong> – ICAR–NBFGR & AMITY University, India (2018)</li>
-      <li><strong>M.Sc. Bioinformatics</strong> – Jamia Millia Islamia, New Delhi (2006)</li>
+      <li><strong>Ph.D. Biotechnology (Computational Genomics)</strong> - ICAR-NBFGR & AMITY University, India (2018)</li>
+      <li><strong>M.Sc. Bioinformatics</strong> - Jamia Millia Islamia, New Delhi (2006)</li>
     </ul>
   </section>
 
   <section id="experience">
     <h2>Professional Experience</h2>
     <ul>
-      <li><strong>Visiting Scholar</strong>, University of California, San Diego (2019–Present)</li>
-      <li><strong>Research Associate/Fellow</strong>, ICAR–NBFGR, Lucknow (2010–2019)</li>
+      <li><strong>Visiting Scholar</strong>, University of California, San Diego (2019-Present)</li>
+      <li><strong>Research Associate/Fellow</strong>, ICAR-NBFGR, Lucknow (2010-2019)</li>
       <li><strong>Software Engineer</strong>, SRM Techsol, Lucknow (2008)</li>
-      <li><strong>Bioinformatics Programmer</strong>, Asenterra Systems, Chennai (2006–2008)</li>
+      <li><strong>Bioinformatics Programmer</strong>, Asenterra Systems, Chennai (2006-2008)</li>
     </ul>
   </section>
 
@@ -195,7 +241,7 @@
         <em>Scientific Reports, 2022; 12:226.</em>
       </li>
       <li><span class="pub-title">FisOmics: A portal of fish genomic resources.</span><br>
-        <em>Genomics, 2019; 111(6):1923–1928.</em>
+        <em>Genomics, 2019; 111(6):1923-1928.</em>
       </li>
       <li><span class="pub-title">HRGFish: A database of hypoxia responsive genes in fishes.</span><br>
         <em>Scientific Reports, 2017; 7:42346.</em>
@@ -214,19 +260,28 @@
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      ?? <strong>Email:</strong> [your email here] <br>
-      ?? <strong>Affiliation:</strong> Division of Biological Sciences, University of California, San Diego, USA <br>
-      ?? 
-      <a href="https://www.researchgate.net/profile/Iliyas_Rashid" target="_blank">ResearchGate</a> |
-      <a href="https://scholar.google.com" target="_blank">Google Scholar</a> |
-      <a href="https://orcid.org/" target="_blank">ORCID</a>
-    </p>
-  </section>
+  <h2>Contact</h2>
+  <p>
+    <i class="fa-solid fa-envelope"></i> <strong>Email:</strong> [your email here] <br>
+    <i class="fa-solid fa-globe"></i> <strong>Affiliation:</strong> Division of Biological Sciences, University of California, San Diego, USA <br>
+    <i class="fa-solid fa-link"></i>
+    <a href="https://www.researchgate.net/profile/Iliyas_Rashid" target="_blank">ResearchGate</a> |
+    <a href="https://scholar.google.com" target="_blank">Google Scholar</a> |
+    <a href="https://orcid.org/" target="_blank">ORCID</a>
+  </p>
+</section>
 
   <footer>
     © 2025 Dr. Iliyas Rashid — Computational Genomics & Bioinformatics
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
